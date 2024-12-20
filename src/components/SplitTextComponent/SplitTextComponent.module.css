@@ -1,0 +1,11 @@
+.char {
+  display: inline-block;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.space {
+  display: inline-block;
+  width: 0.25em;
+}

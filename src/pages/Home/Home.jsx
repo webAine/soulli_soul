@@ -1,16 +1,30 @@
-import { useNavigate } from 'react-router-dom';
+import React, { useRef } from "react";
+import Hero from "../../components/Hero/Hero";
+import Gallery from "../../components/Gallery/Gallery";
+import Contacts from "../../components/Contacts/Contacts";
+import About from "../../components/About/About";
+import ImageContainer from "../../components/ImageContainer/ImageContainer";
+import useHeroAnimation from "../../hooks/useHeroAnimation"; // Подключаем хук
 
 const Home = () => {
+  const imgRef = useRef(null);
+  const wrapperRef = useRef(null);
 
-  const navigate = useNavigate();
+  useHeroAnimation(imgRef, wrapperRef);
 
   return (
     <div>
-      <div>
-      <button onClick={() => navigate('/gallery/twitch_panels')}>Twitch Panels</button>
-      <button onClick={() => navigate('/gallery/vtuber_models')}>Vtuber Models</button>
-      <button onClick={() => navigate('/gallery/twitch_emotes')}>Twitch Emotes</button>
-      <button onClick={() => navigate('/gallery/png_tuber')}>PNG Tuber</button>
+      <div className="wrapper">
+        <div className="content">
+          <div ref={wrapperRef}>
+            <Hero />
+            <ImageContainer imgRef={imgRef} />
+          </div>
+          <About />
+          <Gallery />
+          <About />
+          <Contacts />
+        </div>
       </div>
     </div>
   );

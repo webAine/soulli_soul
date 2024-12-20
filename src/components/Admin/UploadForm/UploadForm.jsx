@@ -13,7 +13,7 @@ const UploadForm = ({ onUpload, currentFolder }) => {
     setPreviews(previewUrls);
   };
 
-  const handleSubmit = async (event) => {
+   const handleSubmit = async (event) => {
     event.preventDefault();
     
     for (let file of files) {
